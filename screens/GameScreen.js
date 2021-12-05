@@ -8,7 +8,6 @@ const GameScreen = (props) => {
     useEffect(() => {
         if (userOdabir) {
             props.userOdabir(userOdabir)
-            console.log("effect")
         }
     }, [userOdabir])
 

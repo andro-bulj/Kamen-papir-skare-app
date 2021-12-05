@@ -22,7 +22,7 @@ const stil = StyleSheet.create({
   tipka:{
     backgroundColor: MainColors.brightblue,
     padding: 10,
-    width: 90,
+    width: 100,
     alignItems: "center",
   },
 })

@@ -22,7 +22,10 @@ export default function App() {
   const [isSelected, setIsSelected] = useState(false)
   const [appOdabir, setAppOdabir] = useState(null)
   const [userOdabir, setUserOdabir] = useState(null)
-  const odabiri = ["Kamen","Skare","Papir"]
+  const [poraza, postaviPoraze] = useState(0)
+  const [pobjeda, postaviPobjede] = useState(0)
+  const [neodluceno, postaviNeodluceno] = useState(0)
+  const odabiri = ["Kamen", "Skare", "Papir"]
 
   if (!assetsLoaded) {
     return (
@@ -34,30 +37,53 @@ export default function App() {
     )
   }
 
-  const loadGame = () =>{
+  const loadGame = () => {
     setStartGame(true)
   }
 
-  const postaviOdabir = (odabir) =>{
+  const postaviOdabir = (odabir) => {
     setUserOdabir(odabir)
     const appRandSelect = Math.floor(Math.random() * 3)
     setAppOdabir(odabiri[appRandSelect])
     setIsSelected(true)
   }
 
-  let prikaz = <StartScreen loadgame={loadGame}/>
-  if (startGame && !isSelected){
-    prikaz = <GameScreen userOdabir={postaviOdabir}/>
+  const playAgain = () =>{
+    setIsSelected(false)
   }
-  else if (startGame && isSelected){
-    prikaz = <EndScreen app={appOdabir} user={userOdabir}/>
+
+  const setStatistika = (stat) =>{
+    if (stat === "Poraz"){
+      postaviPoraze(poraza+1)
+    }
+    else if(stat === "Pobjeda"){
+      postaviPobjede(pobjeda+1)
+    }
+    else{
+      postaviNeodluceno(neodluceno+1)
+    }
+  }
+
+  let prikaz = <StartScreen loadgame={loadGame} />
+  if (startGame && !isSelected) {
+    prikaz = <GameScreen userOdabir={postaviOdabir} />
+  }
+  else if (startGame && isSelected) {
+    prikaz = <EndScreen
+      app={appOdabir}
+      user={userOdabir}
+      playagain={playAgain}
+      setstatistika={setStatistika}
+      pobjede={pobjeda}
+      porazi={poraza}
+      neodluceni={neodluceno} />
   }
 
 
   return (
     <View style={styles.container}>
       <AppTitle title={"Kamen Škare Papir"} />
-        {prikaz}
+      {prikaz}
     </View>
   );
 }
