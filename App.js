@@ -6,6 +6,7 @@ import AppTitle from './components/AppTitle';
 import MainColors from './constants/MainColors';
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading';
+import GameScreen from './screens/GameScreen';
 
 const getFont = () => {
   return Font.loadAsync({
@@ -16,6 +17,7 @@ const getFont = () => {
 
 export default function App() {
   const [assetsLoaded, setAssetsLoaded] = useState(false)
+  const [startGame, setStartGame] = useState(false)
 
   if (!assetsLoaded) {
     return (
@@ -27,7 +29,14 @@ export default function App() {
     )
   }
 
-  let prikaz = <StartScreen/>
+  const loadGame = () =>{
+    setStartGame(true)
+  }
+
+  let prikaz = <StartScreen loadgame={loadGame}/>
+  if (startGame){
+    prikaz = <GameScreen/>
+  }
 
   return (
     <View style={styles.container}>
