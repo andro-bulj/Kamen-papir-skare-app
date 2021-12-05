@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Image, View, StyleSheet, TouchableOpacity } from "react-native";
 import AppImgBtn from "../components/AppImgBtn";
 
-const GameScreen = () => {
+const GameScreen = (props) => {
+    const [userOdabir, setUserOdabir] = useState(null)
+
+    useEffect(() => {
+        if (userOdabir) {
+            props.userOdabir(userOdabir)
+            console.log("effect")
+        }
+    }, [userOdabir])
+
     return (
         <View style={stil.screen}>
-            <AppImgBtn>
-            <Image style={stil.slikaStyle} source={require("../assets/Kamen.png")}></Image>
-            </AppImgBtn>
+            <AppImgBtn onPress={() => setUserOdabir("Kamen")} odabir="Kamen" />
 
-            <AppImgBtn>
-            <Image style={stil.slikaStyle} source={require("../assets/Skare.png")}></Image>
-            </AppImgBtn>
+            <AppImgBtn onPress={() => setUserOdabir("Skare")} odabir="Skare" />
 
-            <AppImgBtn>
-            <Image style={stil.slikaStyle} source={require("../assets/Papir.png")}></Image>
-            </AppImgBtn>
+            <AppImgBtn onPress={() => setUserOdabir("Papir")} odabir="Papir" />
         </View>
     )
 }
@@ -26,12 +29,8 @@ const stil = StyleSheet.create({
         flex: 1,
         justifyContent: "space-evenly",
         flexDirection: "column"
-        
     },
-    slikaStyle: {
-        height: 170,
-        width: 160,
-    }
+
 })
 
 export default GameScreen
