@@ -29,7 +29,6 @@ const stil = StyleSheet.create({
         justifyContent: "space-evenly",
         flexDirection: "column"
     },
-
 })
 
 export default GameScreen

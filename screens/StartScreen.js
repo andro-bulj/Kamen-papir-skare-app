@@ -20,7 +20,7 @@ const StartScreen = (props) => {
                 </Text>
             </View>
             <View style={stil.button}>
-                <AppButton buttonStyle={stil.tipka} onPress={props.loadgame}>{"Igraj"}</AppButton>
+                <AppButton onPress={props.loadgame}>{"Igraj"}</AppButton>
             </View>
         </View>
     )
@@ -49,7 +49,6 @@ const stil = StyleSheet.create({
         borderRadius: 20,
         borderColor: MainColors.darkblue
     }
-
 })
 
 export default StartScreen

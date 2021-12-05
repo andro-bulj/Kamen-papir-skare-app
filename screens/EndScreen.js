@@ -38,7 +38,7 @@ const EndScreen = (props) => {
             <View>
                 <Text style={stil.tekst}>Rezultat runde: <AppText>{rezultat}</AppText></Text>
                 <View style={stil.stats}>
-                    <Text style={stil.statistika}>Statistika odigranih rundi:</Text>
+                    <Text style={stil.statistika}>Statistika odigranih rundi</Text>
                     <Text style={stil.statistika}>
                         Pobjeda: <AppText>{props.pobjede}</AppText>
                         Poraza: <AppText>{props.porazi}</AppText>
