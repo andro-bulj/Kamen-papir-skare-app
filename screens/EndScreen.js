@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import AppButton from "../components/AppButton";
 import AppImgBtn from "../components/AppImgBtn";
 import AppText from "../components/AppText";
@@ -10,7 +10,7 @@ const EndScreen = (props) => {
     const appOdabir = props.app
 
     if (userOdabir === appOdabir) {
-        rezultat = "Neodluceno"
+        rezultat = "Neodlučeno"
     }
     else if (userOdabir === "Kamen" && appOdabir === "Skare" || userOdabir === "Skare" && appOdabir === "Papir" || userOdabir === "Papir" && appOdabir === "Kamen") {
         rezultat = "Pobjeda"
@@ -40,9 +40,9 @@ const EndScreen = (props) => {
                 <View style={stil.stats}>
                     <Text style={stil.statistika}>Statistika odigranih rundi:</Text>
                     <Text style={stil.statistika}>
-                        Pobjeda: <AppText>{props.pobjede}</AppText> 
-                        Poraza: <AppText>{props.porazi}</AppText>  
-                        Neodlučeno: <AppText>{props.neodluceni}</AppText></Text>
+                        Pobjeda: <AppText>{props.pobjede}</AppText>
+                        Poraza: <AppText>{props.porazi}</AppText>
+                        Neodlučenih: <AppText>{props.neodluceni}</AppText></Text>
                 </View>
                 <View style={stil.button}>
                     <AppButton onPress={props.playagain}>Igraj opet</AppButton>
@@ -78,7 +78,7 @@ const stil = StyleSheet.create({
     button: {
         marginTop: 30
     },
-    stats:{
+    stats: {
         marginTop: 30
     }
 })

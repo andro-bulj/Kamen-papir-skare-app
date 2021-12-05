@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, Button} from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import AppButton from "../components/AppButton";
 import MainColors from "../constants/MainColors";
 
@@ -8,20 +8,21 @@ const StartScreen = (props) => {
     return (
         <View>
             <Text style={stil.upute} >{"Upute: "}</Text>
-            <Text style={stil.uputeText} >
-                {
-                    "Odaberite jedan od tri oblika: kamen,škare ili papir"
-                    + "\n\nKamen pobjeđuje škare"
-                    + "\n\nŠkare pobjeđuju papir"
-                    + "\n\nPapir pobjeđuje kamen"
-                    + "\n\nU slučaju da aplikacija odabere isti znak ostaje neriješeno"
-                }
-            </Text>
+            <View style={stil.uputeTxt}>
+                <Text style={stil.uputeText} >
+                    {
+                        "Odaberite jedan od tri oblika: kamen,škare ili papir"
+                        + "\n\nKamen pobjeđuje škare"
+                        + "\n\nŠkare pobjeđuju papir"
+                        + "\n\nPapir pobjeđuje kamen"
+                        + "\n\nU slučaju da aplikacija odabere isti znak ostaje neodlučeno"
+                    }
+                </Text>
+            </View>
             <View style={stil.button}>
                 <AppButton buttonStyle={stil.tipka} onPress={props.loadgame}>{"Igraj"}</AppButton>
             </View>
         </View>
-
     )
 }
 
@@ -30,19 +31,25 @@ const stil = StyleSheet.create({
         color: "white",
         fontFamily: "montserrat",
         padding: 20,
-        fontSize: 20,
+        fontSize: 22,
+        textDecorationLine: "underline",
     },
     uputeText: {
         color: "white",
         fontFamily: "montserrat",
-        paddingLeft: 40,
-        paddingRight: 10,
-        fontSize: 16,
+        fontSize: 15,
     },
-    button:{
-        marginTop: 30
+    button: {
+        marginTop: 30,
+    },
+    uputeTxt: {
+        borderWidth: 4,
+        padding: 10,
+        marginHorizontal: 10,
+        borderRadius: 20,
+        borderColor: MainColors.darkblue
     }
-    
+
 })
 
 export default StartScreen

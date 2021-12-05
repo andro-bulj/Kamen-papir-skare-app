@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet } from "react-native";
 import AppImgBtn from "../components/AppImgBtn";
 
 const GameScreen = (props) => {

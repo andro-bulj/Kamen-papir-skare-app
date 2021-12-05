@@ -35,7 +35,7 @@ const AppImgBtn = (props) => {
 const stil = StyleSheet.create({
     slikaStyle: {
         height: 170,
-        width: 160,
+        width: 170,
     }
 })
 

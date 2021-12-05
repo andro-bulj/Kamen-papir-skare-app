@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import StartScreen from './screens/StartScreen';
@@ -78,7 +77,6 @@ export default function App() {
       porazi={poraza}
       neodluceni={neodluceno} />
   }
-
 
   return (
     <View style={styles.container}>
